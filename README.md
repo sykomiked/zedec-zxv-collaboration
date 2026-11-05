@@ -134,6 +134,69 @@ worth reading, and you would find out anyway.
 
 ---
 
+## Documentation — for the curious
+
+Five documents covering the system in depth. Read them in this order:
+
+| Document | What it answers |
+|---|---|
+| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | how the stack fits together; the account model; storage key derivation |
+| [`docs/FOUR-VALUED-LOGIC.md`](docs/FOUR-VALUED-LOGIC.md) | the full treatment of `TRUE` / `FALSE` / `BOTH` / `NEITHER`, and the eight problems it answers |
+| [`docs/INTEGRATION.md`](docs/INTEGRATION.md) | call shapes, payload layouts, and a failure catalogue from real transactions |
+| [`docs/VERIFICATION.md`](docs/VERIFICATION.md) | how to check every claim yourself, including the provenance chain |
+| [`docs/FAQ.md`](docs/FAQ.md) | the questions worth asking — control, supply, audits, the trade-offs |
+
+---
+
+## Related repositories
+
+### Ours
+
+| Repository | What it is |
+|---|---|
+| [`sykomiked/zedec-zxv-deployment`](https://github.com/sykomiked/zedec-zxv-deployment) | **the main repository** — 21 documents, 12 compiled WASM files hash-verified against chain, build logs, forensic ledger |
+| [`sykomiked/zedec-zxv-collaboration`](https://github.com/sykomiked/zedec-zxv-collaboration) | this repository — the 19 proposals |
+
+### Referenced in the proposals
+
+| Repository | Related proposal |
+|---|---|
+| [`NEARBuilders/nostr.nearbuilders.org`](https://github.com/NEARBuilders/nostr.nearbuilders.org) | Nostr ↔ NEAR (12) |
+| [`open-crosspost/app`](https://github.com/open-crosspost/app) | Open Crosspost (15) |
+| [`noobshole/svalin-agent`](https://github.com/noobshole/svalin-agent) | Portfolio risk (19) |
+| [`harjaapdhillon16/datagent`](https://github.com/harjaapdhillon16/datagent) | Datagent (10) |
+| [`sam3dsol/Nearlytrade`](https://github.com/sam3dsol/Nearlytrade) | nearly.trade (13) |
+| [`ayushsingh82/Nexchange`](https://github.com/ayushsingh82/Nexchange) | Verdikt (14) |
+| [`Selliksss/clearance`](https://github.com/Selliksss/clearance) | Clearance (07) |
+| [`DUST-CHAIN/vrx-protocol`](https://github.com/DUST-CHAIN/vrx-protocol) | VRX (09) |
+
+### On-chain, where the truth actually lives
+
+| Resource | What it shows |
+|---|---|
+| [`nearblocks.io/address/unog.near`](https://nearblocks.io/address/unog.near) | the sealed core |
+| [`nearblocks.io/token/unog.near`](https://nearblocks.io/token/unog.near) | TIAMAT / PQOS |
+| [`app.ref.finance/#/pools/8992`](https://app.ref.finance/#/pools/8992) | the live PQOS/wNEAR pair |
+| [`pikespeak.ai/token/unog.near`](https://pikespeak.ai/token/unog.near) | holders |
+
+---
+
+## One command to check everything
+
+```bash
+git clone https://github.com/sykomiked/zedec-zxv-deployment
+cd zedec-zxv-deployment && ./tools/verify.sh
+```
+
+Checks all 12 contracts against mainnet, confirms 8 are sealed with zero keys,
+verifies the QC log hash equals the deployed hash, and reads token metadata.
+Read-only RPC, no keys, no gas.
+
+**If any claim here disagrees with the chain, the chain is right and this
+repository is wrong.**
+
+---
+
 ## Licence
 
 Apache-2.0. These proposals are free to use, quote, or ignore.
